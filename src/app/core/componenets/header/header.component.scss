@@ -1,0 +1,39 @@
+.menu-icon {
+  font-size: 2em;
+  padding: 18px;
+  cursor: pointer;
+}
+
+.topbar {
+  display: flex;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar.mat-primary {
+  -webkit-transition: 700ms ;
+  -ms-transition:  700ms ;
+  transition: 700ms ;
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+.fixed {
+  position: absolute;
+  background-color: transparent !important;
+  top: 0;
+  z-index: 5;
+  align-content: center;
+  color: #fff;
+  transition: 0.5s;
+}
+.sticky {
+  position: sticky;
+  position: -webkit-sticky;
+  background-color: white;
+  top: 0;
+  z-index: 5;
+  color: #FFF;
+  transition:  0.5s;
+}

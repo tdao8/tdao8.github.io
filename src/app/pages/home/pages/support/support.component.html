@@ -1,0 +1,223 @@
+<app-side-nav
+  [sidenavTemplateRef]='navContent'
+  [direction]="'right'"
+  [navWidth]='280'pathLists
+  [duration]='0.5' [pathLists]='pathLists'></app-side-nav>
+
+<div class='main-container' #mainContent style='height: 100%'>
+  <!--  <app-header [type]='type'></app-header>-->
+  <mat-toolbar [ngClass]='type == 0 ? "fixed" : "sticky mat-elevation-z8"' #pageHeader>
+    <mat-toolbar-row style='min-height: 100px !important;'>
+      <div class='container topbar'>
+        <div>
+          <a mat-button class='logo' href='/'>
+            <img style='height: 40px;' src='assets/img/logo_landing_page.png'>
+          </a>
+        </div>
+        <div class='spacer'></div>
+        <div class='top-menu' fxLayout='row'>
+          <ng-container *ngIf='!isMobile'>
+            <ng-container *ngFor='let path of pathLists'>
+              <a mat-button style='text-transform: uppercase; color: #0e0c0c'>{{path.pathName}}</a>
+            </ng-container>
+          </ng-container>
+          <button mat-button (click)='toggleSideNav()'>
+            <mat-icon style='color: #0e0c0c'>menu</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <section>
+    <div class='content-div' fxLayout='column' fxFlexFill>
+      <section id='home'>
+        <div id='home-content' data-aos='flip-right'>
+          <h1 style='text-align: center'>Hệ thống quản lý nhà hàng <br> eZozo</h1>
+          <p class='text-center text-muted'>eZoZo - Hệ thống quản lý bán hàng phố biến nhất. Giao diện hiện đại,<br> đơn giản, dễ dùng, tiết
+            kiệm chi phí</p>
+          <div>
+            <button style='margin: 0.5rem' mat-raised-button color='accent'>Tìm hiểu</button>
+            <button style='margin: 0.5rem' mat-raised-button color='primary'>Trợ giúp</button>
+          </div>
+          <div class='display-flex' style='padding: 2rem 0 0 0'>
+            <img style='width: 80%; max-width: 400px;' src='assets/img/svg/Picture.png' alt=''>
+          </div>
+        </div>
+      </section>
+      <section id='features-section' class='container' data-aos='flip-right'>
+        <div id='section-header'>
+          <h1 class='text-center section-header'>Dịch vụ hệ thống</h1>
+          <h6 style='text-align: center'>Các dịch vụ tích hợp <br> trong phần mềm quản lý bàn hàng eZozo</h6>
+        </div>
+        <div class='section-content' fxLayout='row' fxLayout.lt-sm='column'>
+          <div class='feature-item' fxFlex='1/3'>
+            <img src='assets/img/theme/Group12.svg' alt=''>
+            <h4 style='text-align: center'>Hệ thống <br />Bán hàng</h4>
+            <p class='text-muted feature-item-content'>Phần mềm bàn hàng dành cho nhân viên phục vụ</p>
+            <button mat-button>Bắt đầu</button>
+          </div>
+          <div class='feature-item' fxFlex='1/3'>
+            <img src='assets/img/theme/Group7.svg' alt=''>
+            <h4 style='text-align: center'>Hệ thống <br />Quản lý bếp</h4>
+            <p class='text-muted feature-item-content'>Phần mềm quản lý bếp, hỗ trợ gửi thông tin đến bếp nhanh
+              hơn</p>
+            <button mat-button>Bắt đầu</button>
+          </div>
+          <div class='feature-item' fxFlex='1/3'>
+            <img src='assets/img/theme/Group5.svg' alt=''>
+            <h4 style='text-align: center'>Hệ thống <br />Quản trị</h4>
+            <p class='text-muted feature-item-content'>Phần mềm quản lý cấu hình và theo dõi thông tin nhà hàng</p>
+            <button mat-button>Bắt đầu</button>
+          </div>
+        </div>
+      </section>
+      <section id='digital-marketing-section' class='container'>
+        <div id='marketing-1' class='marketing-card' fxLayout='row' fxLayout.lt-md='column'>
+          <div fxFlex='5/12' class='marketing-content' data-aos='fade-right'>
+            <h1>Dễ dàng lên đơn gọi món</h1>
+            <p>Hỗ trợ nhân viên dễ dàng quản lý, lên đơn, gọi món, tương tác với nhà bếp, bar.</p>
+          </div>
+          <div fxFlex='7/12' data-aos='fade-left'>
+            <img class='card-img' src='assets/img/svg/undraw_healthy_options_sdo3.svg' alt=''>
+          </div>
+        </div>
+
+        <div id='marketing-2' class='marketing-card' fxLayout='row' fxLayout.lt-md='column-reverse'>
+          <div fxFlex='7/12' data-aos='fade-right'>
+            <img class='card-img' src='assets/img/svg/undraw_data_report_bi6l.svg' alt=''>
+          </div>
+          <div fxFlex='5/12' class='marketing-content' data-aos='fade-left'>
+            <h1>Dễ dàng lên đơn gọi món</h1>
+            <p>Hỗ trợ nhân viên dễ dàng quản lý, lên đơn, gọi món, tương tác với nhà bếp, bar.</p>
+          </div>
+        </div>
+
+        <div id='marketing-3' class='marketing-card' fxLayout='row' fxLayout.lt-md='column'>
+          <div fxFlex='5/12' class='marketing-content' data-aos='fade-right'>
+            <h1>Tương tác với đơn vị chế biến</h1>
+            <p>Hỗ trợ quản lý trạng thái chế biến gọi món, giúp khách hàng yên tâm sau khi gọi món.</p>
+          </div>
+          <div fxFlex='7/12' data-aos='fade-left'>
+            <img class='card-img' src='assets/img/svg/undraw_cooking_lyxy.svg' alt=''>
+          </div>
+        </div>
+
+        <div id='marketing-4' class='marketing-card' fxLayout='row' fxLayout.lt-md='column-reverse'>
+          <div fxFlex='5/12' data-aos='fade-right'>
+            <img class='card-img' src='assets/img/svg/undraw_progressive_app_m9ms.svg' alt=''>
+          </div>
+          <div fxFlex='7/12' class='marketing-content' data-aos='fade-left'>
+            <h1>Hỗ trợ đa nền tảng.</h1>
+            <p>Hỗ trợ cả 3 nền tảng phổ biến nhất hiện nay: Web, Desktop, Mobile (iOS, Android) dựa trên nền tảng
+              cloud.</p>
+          </div>
+        </div>
+      </section>
+      <section id='download-section' class='container' data-aos='flip-right'>
+        <div class='section-header'>
+          <h1>Tải ứng dụng</h1>
+          <p>Link tải xuống, truy cập ứng dụng</p>
+        </div>
+        <div fxLayout='row wrap'>
+          <div fxFlex.gt-md='25%' fxFlex.gt-sm='50%' fxFlex.gt-xs='100%' class='download-card'>
+            <div class='card-img-content' matRipple>
+              <img class='card-img' src='assets/img/svg/undraw_Browser_stats_av6t.svg' alt=''>
+            </div>
+            <div class='card-content'>
+              Web
+            </div>
+            <button mat-button>Truy cập</button>
+          </div>
+          <div fxFlex.gt-md='25%' fxFlex.gt-sm='50%' fxFlex.gt-xs='100%' class='download-card'>
+            <div class='card-img-content' matRipple>
+              <img class='card-img' src='assets/img/svg/80146-blue-apple-text-app-iphone-store.png'
+                   alt=''>
+            </div>
+            <div class='card-content'>
+              App store
+            </div>
+            <button mat-button>Tải xuống</button>
+          </div>
+          <div fxFlex.gt-md='25%' fxFlex.gt-sm='50%' fxFlex.gt-xs='100%' class='download-card'>
+            <div class='card-img-content' matRipple>
+              <img class='card-img' src='assets/img/svg/ce9653ca368b49c2dfe40f9fd3c559be.png' alt=''>
+            </div>
+            <div class='card-content'>
+              Play store
+            </div>
+            <button mat-button>Tải xuống</button>
+          </div>
+          <div fxFlex.gt-md='25%' fxFlex.gt-sm='50%' fxFlex.gt-xs='100%' class='download-card'>
+            <div class='card-img-content' matRipple>
+              <img class='card-img' src='assets/img/svg/Dell_Inspiron_One_23_Touch_AIO_Desktop_PC.png'
+                   alt=''>
+            </div>
+            <div class='card-content'>
+              Window
+            </div>
+            <button mat-button>Tải xuống</button>
+          </div>
+        </div>
+      </section>
+      <section id='support-section' class='container'>
+        <h1>Hỗ trợ phần mềm eZozo</h1>
+        <p>Gọi tổng đài chăm sóc khách hàng 1900 xxxx để được phục vụ 365 ngày/năm từ 7:00 đến 22:00</p>
+        <div id='support-welcome-section'>
+          <h2>Chào mừng bạn đến với kênh hỗ trợ eZozo</h2>
+          <mat-form-field>
+            <input matInput type='search' placeholder='Tìm kiếm' class='search-input'>
+            <mat-icon matPrefix>search</mat-icon>
+          </mat-form-field>
+          <mat-tab-group mat-align-tabs='center'>
+            <mat-tab label='Hỗ trợ quản lý nhà hàng'></mat-tab>
+            <mat-tab label='Hỗ trợ nhân viên nhà hàng'>Hỗ trợ nhân viên nhà hàng</mat-tab>
+          </mat-tab-group>
+
+
+        </div>
+      </section>
+      <div class='contact'></div>
+      <footer class='page-footer'>
+        <div class='container'>
+          <div class='footer-content'>
+            <div fxLayout='row' fxLayout.lt-sm='column'>
+              <div fxFlex='50%' class='footer-content-info'>
+                <h5>CÔNG TY CÔNG NGHỆ THÔNG TIN VNPT-IT</h5>
+                <p>57 Huỳnh Thúc Kháng - Đống Đa - Hà Nội</p>
+                <p>Điện thoại: 0243.553.3388</p>
+                <p>Fax: 0243.385.5588</p>
+                <p>Email: vnptit@vnpt.vn</p>
+              </div>
+              <div fxFlex='50%' class='footer-links' fxLayout.lt-sm='column'>
+                <div class='footer-link' fxFlex='1/2'>
+                  <h5>ĐIỀU KHOẢN</h5>
+                  <p>Điều kiện</p>
+                  <p>Chính sách bảo mật</p>
+                  <p>Chính sách Cookie</p>
+                  <p>Khám phá</p>
+                </div>
+                <div class='footer-link' fxFlex='1/2'>
+                  <h5>LIÊN HỆ</h5>
+                  <div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='footer-copyright'>
+            <span>Bàn quyền © Công ty công nghệ thông tin VNPT-IT 2021. Phiên bản - 1.2.0.2</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+  </section>
+</div>
+
+<ng-template #navContent>
+  <ng-container *ngFor='let path of pathLists'>
+    <a mat-list-item style='text-transform: uppercase; color: #0e0c0c'>{{path.pathName}}</a>
+  </ng-container>
+</ng-template>
+

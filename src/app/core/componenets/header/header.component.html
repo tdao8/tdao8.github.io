@@ -1,0 +1,22 @@
+<header>
+  <mat-toolbar class='sticky mat-elevation-z8' #pageheader>
+    <mat-toolbar-row style='min-height: 100px !important;'>
+      <div class='container topbar'>
+        <div>
+          <a mat-button class='logo' href='/'>
+            <img style='height: 40px;' src='assets/img/logo_landing_page.png'>
+          </a>
+        </div>
+        <div class='spacer'></div>
+        <div class='top-menu'>
+          <ng-container *ngFor='let path of pathLists'>
+            <a mat-button style='text-transform: uppercase; color: #0e0c0c'>{{path.pathName}}</a>
+          </ng-container>
+          <button mat-button (click)="toggleSideNav()">
+            <mat-icon style='color: #0e0c0c'>menu</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</header>
