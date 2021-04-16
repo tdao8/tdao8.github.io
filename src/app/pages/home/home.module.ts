@@ -5,7 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { FlexModule } from '@angular/flex-layout';
+import {ExtendedModule, FlexModule} from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -21,10 +21,15 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatCardModule} from '@angular/material/card';
+import { IntroComponent } from './components/intro/intro.component';
+import { AboutMeComponent } from './components/about-me/about-me.component';
+import { WorkComponent } from './components/work/work.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, SupportComponent],
+  declarations: [HomeComponent, SupportComponent, IntroComponent, AboutMeComponent, WorkComponent, ContactComponent, PersonalInfoComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
@@ -43,7 +48,8 @@ import {MatCardModule} from '@angular/material/card';
     HttpClientModule,
     MatSliderModule,
     MatProgressBarModule,
-    MatCardModule
+    MatCardModule,
+    ExtendedModule
   ],
   providers: [
     LandingPageService

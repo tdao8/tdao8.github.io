@@ -2,7 +2,7 @@
               [pathLists]='pathLists'></app-side-nav>
 
 <div class='main-container' #mainContent style='height: 100%'>
-  <mat-toolbar [ngClass]='type == 0 ? "fixed" : "sticky mat-elevation-z8"' #pageHeader>
+  <mat-toolbar [ngClass]='!isMobile ? "fixed" : "sticky mat-elevation-z8"' #pageHeader>
     <mat-toolbar-row style='min-height: 100px !important;'>
       <div class='container topbar'>
         <div>
@@ -14,12 +14,11 @@
         <div class='top-menu' fxLayout='row'>
           <ng-container *ngIf='!isMobile'>
             <ng-container *ngFor='let path of pathLists'>
-              <a mat-button style='margin-right: 1rem'
-                 (click)='directinalPage(path.type)'>{{path.pathName}}</a>
+              <a mat-button style='margin-right: 1rem' [routerLink]="[path.url]">{{path.pathName}}</a>
             </ng-container>
           </ng-container>
           <button mat-button (click)='toggleSideNav()' *ngIf='isMobile'>
-            <mat-icon style='color: #0e0c0c'>menu</mat-icon>
+            <mat-icon>menu</mat-icon>
           </button>
         </div>
       </div>
@@ -29,168 +28,153 @@
     <div class='content-div' fxLayout='column' fxFlexFill>
       <section id='home'>
         <div id='home-content'>
-          <div id="home-bg-overlay"></div>
-          <div id="home-items">
-            <p>Hello & Welcome</p>
-            <p style="white-space: break-spaces; line-height: 3rem">{{typewriterDisplay}}<span
-              style="font-size: 2rem">|</span></p>
-            <div>
-              <button mat-button matTooltip="My Blog">
-                <mat-icon>book</mat-icon>
-              </button>
-              <button mat-button matTooltip="My Facebook">
-                <mat-icon>facebook</mat-icon>
-              </button>
-              <button mat-button matTooltip="My Linkedin">
-                <mat-icon>linkedin</mat-icon>
-              </button>
-            </div>
-            <button style="margin: 1rem 0" mat-stroked-button matTooltip="Download my CV">
-              Download CV
-            </button>
+          <div id="home-bg-overlay" class="flex-center">
+          </div>
+          <div style="position: absolute" [ngStyle.lt-md]="{'top' : 0}">
+            <router-outlet></router-outlet>
           </div>
         </div>
       </section>
 
-      <section id="about" class="container">
-        <h5>About Me</h5>
-        <div style="width: 70%; text-align: center">Experienced Java Web Developer with a demonstrated history of
-          working in the computer software industry. Skilled in Spring Framework, Angular, .NetCore, etc.
-        </div>
-        <div id="skills" fxLayout="row wrap" fxLayout.lt-md="column">
-          <ng-container *ngFor="let skill of skillLists">
-            <div fxFlex="30%" class="skill-item">
-              <div style="display: flex;">
-                <label>{{skill.name}}</label>
-                <div class="spacer"></div>
-                <label style="color: #3f51b5">{{skill.value}}%</label>
-              </div>
-              <mat-progress-bar class="green-progress" mode="determinate" [value]="skill.value"></mat-progress-bar>
-            </div>
-          </ng-container>
-        </div>
-      </section>
+      <!--      <section id="about" class="container">-->
+      <!--        <h5>About Me</h5>-->
+      <!--        <div style="width: 70%; text-align: center">Experienced Java Web Developer with a demonstrated history of-->
+      <!--          working in the computer software industry. Skilled in Spring Framework, Angular, .NetCore, etc.-->
+      <!--        </div>-->
+      <!--        <div id="skills" fxLayout="row wrap" fxLayout.lt-md="column">-->
+      <!--          <ng-container *ngFor="let skill of skillLists">-->
+      <!--            <div fxFlex="30%" class="skill-item">-->
+      <!--              <div style="display: flex;">-->
+      <!--                <label>{{skill.name}}</label>-->
+      <!--                <div class="spacer"></div>-->
+      <!--                <label style="color: #3f51b5">{{skill.value}}%</label>-->
+      <!--              </div>-->
+      <!--              <mat-progress-bar class="green-progress" mode="determinate" [value]="skill.value"></mat-progress-bar>-->
+      <!--            </div>-->
+      <!--          </ng-container>-->
+      <!--        </div>-->
+      <!--      </section>-->
 
-      <section id="certs">
-        <div class="container flex-center">
-          <h5>Certificates</h5>
-          <div id="cert" fxLayout="row wrap" fxLayout.lt-md="column">
-            <div style="height: 100px">
-              <img style="height: 100%;" src="/assets/img/Oracle_Java_SE_11_Developer_600x600__002_.png" alt="">
-            </div>
-            <a href="https://www.credly.com/badges/f15b30cc-f9e8-4f40-9753-69eca9da1d4d/linked_in">Oracle Certified
-              Professional: Java SE 11 Developer</a>
-          </div>
-        </div>
-      </section>
+      <!--      <section id="certs">-->
+      <!--        <div class="container flex-center">-->
+      <!--          <h5>Certificates</h5>-->
+      <!--          <div id="cert" fxLayout="row wrap" fxLayout.lt-md="column">-->
+      <!--            <div style="height: 100px">-->
+      <!--              <img style="height: 100%;" src="/assets/img/Oracle_Java_SE_11_Developer_600x600__002_.png" alt="">-->
+      <!--            </div>-->
+      <!--            <a href="https://www.credly.com/badges/f15b30cc-f9e8-4f40-9753-69eca9da1d4d/linked_in">Oracle Certified-->
+      <!--              Professional: Java SE 11 Developer</a>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </section>-->
 
-      <section id="works" class="container">
-        <h5>Works</h5>
-        <div style="width: 70%; text-align: center">
-          Starting a new day, I love website programming, meeting clients,....
-        </div>
-        <div id="work" fxLayout="row wrap" fxLayout.lt-md="column">
-          <div fxFlex="30%" class="work-item">
-            <div
-              style="display: flex; flex-direction: column; align-items: center; color: rgb(241, 139, 109); font-weight: bold">
-              <mat-icon>code</mat-icon>
-              <label style="text-align: center;">WEB DEVELOPMENT</label>
-            </div>
-            <p style="text-align: center;">
-              My team design and program website and mobile application according to customer requirements.
-            </p>
-          </div>
-          <div fxFlex="30%" class="work-item">
-            <div
-              style="display: flex; flex-direction: column; align-items: center; color: rgb(241, 210, 4); font-weight: bold">
-              <mat-icon>code</mat-icon>
-              <label style="text-align: center;">WEB DESIGN</label>
-            </div>
-            <p style="text-align: center;">
-              My team design and program website and mobile application according to customer requirements.
-            </p>
-          </div>
-          <div fxFlex="30%" class="work-item">
-            <div
-              style="display: flex; flex-direction: column; align-items: center; color: rgb(106, 77, 138); font-weight: bold">
-              <mat-icon>code</mat-icon>
-              <label style="text-align: center;">CONTENT CREATION</label>
-            </div>
-            <p style="text-align: center;">
-              Content creation for me is sharing personal perspective on programming work.
-            </p>
-          </div>
-        </div>
-      </section>
+      <!--      <section id="works" class="container">-->
+      <!--        <h5>Works</h5>-->
+      <!--        <div style="width: 70%; text-align: center">-->
+      <!--          Starting a new day, I love website programming, meeting clients,....-->
+      <!--        </div>-->
+      <!--        <div id="work" fxLayout="row wrap" fxLayout.lt-md="column">-->
+      <!--          <div fxFlex="30%" class="work-item">-->
+      <!--            <div-->
+      <!--              style="display: flex; flex-direction: column; align-items: center; color: rgb(241, 139, 109); font-weight: bold">-->
+      <!--              <mat-icon>code</mat-icon>-->
+      <!--              <label style="text-align: center;">WEB DEVELOPMENT</label>-->
+      <!--            </div>-->
+      <!--            <p style="text-align: center;">-->
+      <!--              My team design and program website and mobile application according to customer requirements.-->
+      <!--            </p>-->
+      <!--          </div>-->
+      <!--          <div fxFlex="30%" class="work-item">-->
+      <!--            <div-->
+      <!--              style="display: flex; flex-direction: column; align-items: center; color: rgb(241, 210, 4); font-weight: bold">-->
+      <!--              <mat-icon>code</mat-icon>-->
+      <!--              <label style="text-align: center;">WEB DESIGN</label>-->
+      <!--            </div>-->
+      <!--            <p style="text-align: center;">-->
+      <!--              My team design and program website and mobile application according to customer requirements.-->
+      <!--            </p>-->
+      <!--          </div>-->
+      <!--          <div fxFlex="30%" class="work-item">-->
+      <!--            <div-->
+      <!--              style="display: flex; flex-direction: column; align-items: center; color: rgb(106, 77, 138); font-weight: bold">-->
+      <!--              <mat-icon>code</mat-icon>-->
+      <!--              <label style="text-align: center;">CONTENT CREATION</label>-->
+      <!--            </div>-->
+      <!--            <p style="text-align: center;">-->
+      <!--              Content creation for me is sharing personal perspective on programming work.-->
+      <!--            </p>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </section>-->
 
-      <section id="last-news">
-        <div class="container flex-center">
-          <h5 style="color: #FFF">Latest blogs</h5>
-          <p>If you are interested in life of a coder, take a sneak peek at our blog!</p>
-          <a href="https://vcoderlog.com/" mat-button>
-            <mat-icon>chevron_right</mat-icon>
-            See blog
-          </a>
-          <div id="new" fxLayout="row wrap" fxLayout.lt-md="column">
-            <div fxFlex="30%" class="new-item">
-              <mat-card>
-                <div class="new-image">
-                  <img mat-card-image
-                       src="https://vcoderlog.com/static/img/wp-content/uploads/2020/02/git-flow-nvie-761x1024.png">
-                </div>
-                <mat-card-content>
-                  <h5>Gitflow workflow trong 30 phút Cách sử dụng Git trong dự án</h5>
-                  <p class="text-justify">
-                    Mô hình phân nhánh từ Vincent Driessen’s A successful Git branching model - một mô hình kinh điển -
-                    được áp dụng bởi hầu hết các công ty công nghệ hàng đầu hiện nay. Bài viết này sẽ chia sẻ những kiến
-                    thức chung nhất về Git Flow cũng như áp dụng GitFlow trong các dự án.
-                  </p>
-                </mat-card-content>
-                <mat-card-actions>
-                  <button mat-button>
-                    <mat-icon>chevron_right</mat-icon>
-                    Read more
-                  </button>
-                </mat-card-actions>
-              </mat-card>
-            </div>
-          </div>
-        </div>
-      </section>
+      <!--      <section id="last-news">-->
+      <!--        <div class="container flex-center">-->
+      <!--          <h5 style="color: #FFF">Latest blogs</h5>-->
+      <!--          <p>If you are interested in life of a coder, take a sneak peek at our blog!</p>-->
+      <!--          <a href="https://vcoderlog.com/" mat-button>-->
+      <!--            <mat-icon>chevron_right</mat-icon>-->
+      <!--            See blog-->
+      <!--          </a>-->
+      <!--          <div id="new" fxLayout="row wrap" fxLayout.lt-md="column">-->
+      <!--            <div fxFlex="30%" class="new-item">-->
+      <!--              <mat-card>-->
+      <!--                <div class="new-image">-->
+      <!--                  <img mat-card-image-->
+      <!--                       src="https://vcoderlog.com/static/img/wp-content/uploads/2020/02/git-flow-nvie-761x1024.png">-->
+      <!--                </div>-->
+      <!--                <mat-card-content>-->
+      <!--                  <h5>Gitflow workflow trong 30 phút Cách sử dụng Git trong dự án</h5>-->
+      <!--                  <p class="text-justify">-->
+      <!--                    Mô hình phân nhánh từ Vincent Driessen’s A successful Git branching model - một mô hình kinh điển - -->
+      <!--                    được áp dụng bởi hầu hết các công ty công nghệ hàng đầu hiện nay. Bài viết này sẽ chia sẻ những kiến-->
+      <!--                    thức chung nhất về Git Flow cũng như áp dụng GitFlow trong các dự án.-->
+      <!--                  </p>-->
+      <!--                </mat-card-content>-->
+      <!--                <mat-card-actions>-->
+      <!--                  <button mat-button>-->
+      <!--                    <mat-icon>chevron_right</mat-icon>-->
+      <!--                    Read more-->
+      <!--                  </button>-->
+      <!--                </mat-card-actions>-->
+      <!--              </mat-card>-->
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </section>-->
 
-      <footer class='page-footer'>
-        <div class='container'>
-          <div class='footer-content'>
-            <div fxLayout='row' fxLayout.lt-sm='column'>
-              <div fxFlex='40%' class='footer-content-info'>
-                <h5>Vài lời về tôi</h5>
-                <p>Với tôi chia sẻ kiến thức là cách học tập hiệu quả nhất. vCoderLog là blog chia sẻ những kiến thức
-                  lập trình, chuyện linh tinh xoay quanh công việc code dạo... Chia sẻ góc nhìn của bản thân về cuộc
-                  sống, công việc lập trình cho cộng đồng...</p>
-              </div>
-              <div fxFlex='60%' class='footer-links' fxLayout.lt-sm='column'>
-                <div class='footer-link' fxFlex='1/3'>
-                  <h5>Links</h5>
+      <!--      <footer class='page-footer'>-->
+      <!--        <div class='container'>-->
+      <!--          <div class='footer-content'>-->
+      <!--            <div fxLayout='row' fxLayout.lt-sm='column'>-->
+      <!--              <div fxFlex='40%' class='footer-content-info'>-->
+      <!--                <h5>Vài lời về tôi</h5>-->
+      <!--                <p>Với tôi chia sẻ kiến thức là cách học tập hiệu quả nhất. vCoderLog là blog chia sẻ những kiến thức-->
+      <!--                  lập trình, chuyện linh tinh xoay quanh công việc code dạo... Chia sẻ góc nhìn của bản thân về cuộc-->
+      <!--                  sống, công việc lập trình cho cộng đồng...</p>-->
+      <!--              </div>-->
+      <!--              <div fxFlex='60%' class='footer-links' fxLayout.lt-sm='column'>-->
+      <!--                <div class='footer-link' fxFlex='1/3'>-->
+      <!--                  <h5>Links</h5>-->
 
-                </div>
-                <div class='footer-link' fxFlex='1/3'>
-                  <h5>Bạn bè tôi</h5>
-                  <div>
-                  </div>
-                </div>
-                <div class='footer-link' fxFlex='1/3'>
-                  <h5>Web tôi thích </h5>
-                  <div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class='footer-copyright'>
-            <span>Copyright © 2021 All rights reserved - By Truong Dao Xuan. Version - {{url.version}}</span>
-          </div>
-        </div>
-      </footer>
+      <!--                </div>-->
+      <!--                <div class='footer-link' fxFlex='1/3'>-->
+      <!--                  <h5>Bạn bè tôi</h5>-->
+      <!--                  <div>-->
+      <!--                  </div>-->
+      <!--                </div>-->
+      <!--                <div class='footer-link' fxFlex='1/3'>-->
+      <!--                  <h5>Web tôi thích </h5>-->
+      <!--                  <div>-->
+      <!--                  </div>-->
+      <!--                </div>-->
+      <!--              </div>-->
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--          <div class='footer-copyright'>-->
+      <!--            <span>Copyright © 2021 All rights reserved - By Truong Dao Xuan. Version - {{url.version}}</span>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </footer>-->
     </div>
   </section>
 </div>
@@ -198,7 +182,7 @@
 <ng-template #navContent>
   <mat-list>
     <mat-list-item *ngFor='let path of pathLists' style='text-transform: uppercase; color: #0e0c0c' matRipple
-                   (click)='directinalPage(path.type)'>
+                   [routerLink]="[path.url]">
       {{path.pathName}}
     </mat-list-item>
   </mat-list>

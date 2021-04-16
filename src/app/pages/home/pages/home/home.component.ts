@@ -57,10 +57,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
   public isShowNav = false;
   public pathLists = [
     {pathName: 'Home', url: '', type: 0},
-    {pathName: 'About Me', url: '', type: 1},
-    {pathName: 'Works', url: '', type: 2},
+    {pathName: 'About Me', url: 'about-me', type: 1},
+    {pathName: 'Works', url: 'works', type: 2},
     {pathName: 'Blogs', url: '', type: 3},
-    {pathName: 'Contact', url: '', type: 3}
+    {pathName: 'Contact', url: 'contact', type: 3}
   ];
 
   public skillLists = [
@@ -116,7 +116,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     breakpointObserver.observe([
       Breakpoints.Medium,
       Breakpoints.Small,
-      Breakpoints.XSmall
+      Breakpoints.XSmall,
+      Breakpoints.Tablet,
     ]).subscribe(result => {
       if (result.matches) {
         this.isMobile = true;
@@ -206,6 +207,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
   public onWindowResize(event) {
     this.width = event.target.innerWidth;
     this.height = event.target.innerHeight;
+    if (this.height < 850) {
+      this.isMobile = true;
+    } else {
+      this.isMobile = false;
+    }
     this.resizeVideo();
   }
 

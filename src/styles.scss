@@ -139,3 +139,22 @@ p {
     opacity: 1 !important;
   }
 }
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-justify {
+  text-align: justify;
+  text-justify: inter-word
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+::ng-deep .mat-progress-bar-background {
+  fill: red;
+}

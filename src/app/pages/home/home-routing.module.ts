@@ -1,10 +1,23 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { SupportComponent } from './pages/support/support.component';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {HomeComponent} from './pages/home/home.component';
+import {SupportComponent} from './pages/support/support.component';
+import {IntroComponent} from './components/intro/intro.component';
+import {WorkComponent} from './components/work/work.component';
+import {AboutMeComponent} from './components/about-me/about-me.component';
+import {ContactComponent} from './components/contact/contact.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {
+    path: '',
+    component: HomeComponent,
+    children: [
+      {path: '', component: IntroComponent},
+      {path: 'about-me', component: AboutMeComponent},
+      {path: 'works', component: WorkComponent},
+      {path: 'contact', component: ContactComponent}
+    ]
+  },
   {path: 'support', component: SupportComponent},
 ];
 
@@ -12,4 +25,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomeRoutingModule { }
+export class HomeRoutingModule {
+}
