@@ -26,15 +26,18 @@
 }
 
 #certs {
-  padding: 2rem 0;
   color: #8c9597;
   background: url("/assets/img/line.png");
 
   #cert {
     //width: 100%;
     align-items: center;
-    padding-bottom: 2rem;
   }
+}
+
+.about-me {
+  //margin-top: 150px;
+  height: 100%;
 }
 
 #left-content {
@@ -43,7 +46,16 @@
   #personal-header-info {
 
     #avatar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
+      img {
+        margin-top: -50px;
+        border-radius: 50%;
+        width: 70%;
+        border: solid 3px #f44336;
+      }
     }
 
     #personal-name {
@@ -71,4 +83,8 @@
 
 #right-content {
 
+}
+
+.svg-defs {
+  //display: none;
 }

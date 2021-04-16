@@ -210,7 +210,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
     if (this.height < 850) {
       this.isMobile = true;
     } else {
-      this.isMobile = false;
+      if (!this.isMobile) {
+        this.isMobile = false;
+      }
     }
     this.resizeVideo();
   }

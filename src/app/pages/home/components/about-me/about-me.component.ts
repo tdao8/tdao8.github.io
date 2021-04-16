@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-about-me',
@@ -14,8 +15,22 @@ export class AboutMeComponent implements OnInit {
     {name: 'Linux', value: 50},
     {name: 'Devops, etc...', value: 50},
   ];
+  public isMobile = false;
 
-  constructor() { }
+  constructor(breakpointObserver: BreakpointObserver) {
+    breakpointObserver.observe([
+      Breakpoints.Medium,
+      Breakpoints.Small,
+      Breakpoints.XSmall,
+      Breakpoints.Tablet,
+    ]).subscribe(result => {
+      if (result.matches) {
+        this.isMobile = true;
+      } else {
+        this.isMobile = false;
+      }
+    });
+  }
 
   ngOnInit(): void {
   }
