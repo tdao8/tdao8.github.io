@@ -4,15 +4,7 @@
 
 export const environment = {
   production: false,
-  version: '2.0.4.4',
-  landingPageServicesDomain: 'http://qlnh.test/gateway/landing-page-services',
-  imageDomain: 'http://qlnh.test/image',
-  domain: 'http://qlnh.test',
-  staff_domain: 'http://qlnh.test/staff',
-  management_domain: 'http://qlnh.test/management',
-  desktop_download_domain: '',
-  playstore_download_domain: 'https://play.google.com/store/apps/details?id=com.erestaurantstaff',
-  appstore_download_domain: 'https://apps.apple.com/us/app/erestaurantstaff/id1547552364',
+  version: '2.0.4.4'
 };
 
 /*

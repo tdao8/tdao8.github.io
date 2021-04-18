@@ -13,7 +13,6 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
-import { SupportComponent } from './pages/support/support.component';
 import { CoreModule } from '../../core/core.module';
 import { MatListModule } from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
@@ -29,7 +28,7 @@ import { BlogsComponent } from './components/blogs/blogs.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, SupportComponent, IntroComponent, AboutMeComponent, WorkComponent, ContactComponent, PersonalInfoComponent, BlogsComponent],
+  declarations: [HomeComponent, IntroComponent, AboutMeComponent, WorkComponent, ContactComponent, PersonalInfoComponent, BlogsComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

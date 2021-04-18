@@ -2,15 +2,12 @@ import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, O
 import {MatSidenavContent} from '@angular/material/sidenav';
 import {CdkScrollable, ScrollDispatcher} from '@angular/cdk/overlay';
 import AOS from 'aos';
-import {Subscription, timer} from 'rxjs';
+import {timer} from 'rxjs';
 import {NavigationService} from '../../services/navigation.service';
 import {ScrollService} from '../../services/scroll.service';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Router} from '@angular/router';
-import {Subject} from '../../../../core/models/subject';
-import {environment} from '../../../../../environments/environment';
-import {Video} from '../../../../core/models/video';
 
 
 @Component({
@@ -23,20 +20,13 @@ import {Video} from '../../../../core/models/video';
 })
 export class HomeComponent implements OnInit, AfterViewInit {
 
-  scrollingSubscription: Subscription;
   lastOffset;
-  headerClasses;
   type = 0;
   isMobile = false;
-
-  url = environment;
 
 
   public width: number = window.innerWidth;
   public height: number = window.innerHeight;
-
-  public widthVideo: number = 300;
-  public heightVideo: number = 300;
 
   @ViewChild('mainContent') mainContent: any;
   @ViewChild(CdkScrollable) scrollable: CdkScrollable;
@@ -62,31 +52,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     {pathName: 'Contact', url: 'contact', type: 3}
   ];
 
-  public skillLists = [
-    {name: 'Java', value: 80},
-    {name: '.Net Core', value: 70},
-    {name: 'Angular', value: 60},
-    {name: 'Linux', value: 50},
-    {name: 'Devops', value: 50},
-    {name: 'etc...', value: 50},
-  ];
-
-
-
-  public subjects: Subject[] = [];
-  public managerSubject = [];
-  public staffSubject = [];
-  public videos: Video[] = [];
-  public qas: [];
-  public selectedQAs: any[];
   public isOpen: boolean;
-  public more: string;
-
-
-  public tutorialVideos = [];
-
-  public version = environment.version;
-  public domain = environment.domain;
 
   typewriterText1 = 'I\'m Truong';
   typewriterText2 = 'I\'m A Web Developer';
@@ -137,26 +103,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   private initialize(): void {
     this.isOpen = false;
-    this.resizeVideo();
   }
 
   public toggleSideNav(): void {
     this.navService.setShowNav(true);
   }
-
-  private onWindowScroll(data: CdkScrollable): void {
-    const scrollTop = data?.getElementRef().nativeElement.scrollTop || 0;
-    console.log(scrollTop);
-    if (this.lastOffset > scrollTop) {
-      console.log('Show toolbar');
-    } else if (scrollTop < 10) {
-      console.log('Show toolbar');
-    } else if (scrollTop > 100) {
-      console.log('Hide toolbar');
-    }
-    this.lastOffset = scrollTop;
-  }
-
 
   public onWindowResize(event) {
     this.width = event.target.innerWidth;
@@ -168,52 +119,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.isMobile = false;
       }
     }
-    this.resizeVideo();
   }
-
-  public resizeVideo(): void {
-    if (320 <= this.width && this.width < 600) {
-      this.widthVideo = 0.8 * this.width;
-      this.heightVideo = 0.3 * this.height;
-    }
-
-    if (600 <= this.width && this.width < 960) {
-      this.widthVideo = 0.8 * this.width;
-      this.heightVideo = 0.3 * this.height;
-    }
-
-
-    if (960 <= this.width && this.width < 1280) {
-      this.widthVideo = 0.4 * this.width;
-      this.heightVideo = 0.3 * this.height;
-    }
-
-    if (1280 <= this.width && this.width < 1920) {
-      this.widthVideo = 0.3 * this.width;
-      this.heightVideo = 0.3 * this.height;
-    }
-  }
-
-  public directinalPage = (type: number) => {
-    switch (type) {
-      case 0:
-        this.mainContent.nativeElement.scrollIntoView();
-        break;
-
-      case 1:
-        this.serviceContent.nativeElement.scrollIntoView();
-        break;
-      case 2:
-        this.introduceContent.nativeElement.scrollIntoView();
-        break;
-      case 3:
-        this.supportContent.nativeElement.scrollIntoView();
-        break;
-
-      default:
-        break;
-    }
-  };
 
   typingCallback(that): void {
     const totalLength = that.typewriterText.length;
@@ -245,18 +151,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     } else {
       that.typingCallback(that);
     }
-  }
-
-  formatLabel(value: number | null): any {
-    if (!value) {
-      return 0;
-    }
-
-    if (value >= 1000) {
-      return Math.round(value / 1000) + 'k';
-    }
-
-    return value;
   }
 }
 
