@@ -84,16 +84,14 @@
   height: 100%;
   overflow: auto;
   //background-attachment: fixed;
+}
 
-  #home-bg-overlay {
-    height: 100vh;
-    width: 100%;
-    background-color: #000;
-    opacity: 70%;
-    top: 0;
-  }
-
-
+#home-bg-overlay {
+  height: 100vh;
+  width: 100%;
+  background-color: #000;
+  opacity: 75%;
+  top: 0;
 }
 
 .topbar {
