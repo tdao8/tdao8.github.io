@@ -1,1 +1,50 @@
-<p>work works!</p>
+<div style="height: 100vh; overflow: auto">
+  <div class="container" [style]="isMobile ? {'padding-top': '0px'} : {'padding-top' : '150px'}">
+    <div class="about-me" fxLayout="row wrap" fxLayout.lt-sm="column wrap" fxLayoutGap="1rem">
+      <app-personal-info [isMobile]="isMobile"></app-personal-info>
+      <div fxFlex>
+        <mat-card id="right-content">
+          <section id="contacts" class="container">
+            <h5>Works</h5>
+            <div style="width: 70%; text-align: center">
+              Starting a new day, I love website programming, meeting clients,....
+            </div>
+            <div id="work" fxLayout="row wrap" fxLayout.lt-md="column">
+              <div fxFlex="33%" class="work-item">
+                <div
+                  style="display: flex; flex-direction: column; align-items: center; color: rgb(241, 139, 109); font-weight: bold">
+                  <mat-icon>code</mat-icon>
+                  <label style="text-align: center;">WEB DEVELOPMENT</label>
+                </div>
+                <p style="text-align: center;">
+                  My team design and program website and mobile application according to customer requirements.
+                </p>
+              </div>
+              <div fxFlex="33%" class="work-item">
+                <div
+                  style="display: flex; flex-direction: column; align-items: center; color: rgb(241, 210, 4); font-weight: bold">
+                  <mat-icon>code</mat-icon>
+                  <label style="text-align: center;">WEB DESIGN</label>
+                </div>
+                <p style="text-align: center;">
+                  My team design and program website and mobile application according to customer requirements.
+                </p>
+              </div>
+              <div fxFlex="33%" class="work-item">
+                <div
+                  style="display: flex; flex-direction: column; align-items: center; color: rgb(106, 77, 138); font-weight: bold">
+                  <mat-icon>code</mat-icon>
+                  <label style="text-align: center;">CONTENT CREATION</label>
+                </div>
+                <p style="text-align: center;">
+                  Content creation for me is sharing personal perspective on programming work.
+                </p>
+              </div>
+            </div>
+          </section>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+

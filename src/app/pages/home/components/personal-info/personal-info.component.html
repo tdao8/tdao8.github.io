@@ -1,1 +1,60 @@
-<p>personal-info works!</p>
+<div fxFlex="250px" id="left-content" *ngIf="!isMobile">
+  <mat-card style="padding: 0; border-radius: 10px">
+    <div id="personal-header-info" class="flex-center-column">
+      <div id="avatar">
+
+        <img class="gradient-border" height="100%" width="100%" src="/assets/img/avatar.png" alt=""/>
+
+      </div>
+      <div id="personal-name" class="flex-center">
+        <p><strong>Truong</strong> (RyanX)</p>
+      </div>
+      <button mat-stroked-button style="border-radius: 40px">Web Development</button>
+      <div style="padding-top: 1rem">
+        <a mat-button matTooltip="My Blog" href="http://vcoderlog.com/">
+          <mat-icon>book</mat-icon>
+        </a>
+        <a mat-button matTooltip="My Facebook" href="https://www.facebook.com/vcoderlog">
+          <mat-icon>facebook</mat-icon>
+        </a>
+        <a mat-button matTooltip="My Linkedin" href="https://www.linkedin.com/in/tdao7/">
+          <mat-icon>linkedin</mat-icon>
+        </a>
+      </div>
+    </div>
+    <div id="personal-info">
+      <div style="padding: 1rem 0">
+        <div class="personal-info-item">
+          <mat-icon>calendar_today</mat-icon>
+          <label>May 14, 1996</label>
+        </div>
+        <div class="personal-info-item">
+          <mat-icon>place</mat-icon>
+          <label>Hai Phong, Viet Nam</label>
+        </div>
+        <div class="personal-info-item">
+          <mat-icon>mail</mat-icon>
+          <label>vcoderlog@gmail.com</label>
+        </div>
+        <div class="personal-info-item">
+          <mat-icon>stay_primary_portrait</mat-icon>
+          <label>xxx-xxx-0861</label>
+        </div>
+        <div class="personal-info-item">
+          <mat-icon>facebook</mat-icon>
+          <label><a href="https://www.facebook.com/vcoderlog">VCoderLog Fanpage</a></label>
+        </div>
+        <div class="personal-info-item">
+          <mat-icon>ondemand_video</mat-icon>
+          <label><a href="#">VCoderLog Youtube Channel</a></label>
+        </div>
+      </div>
+      <div class="flex-center">
+        <button style="border-radius: 40px" mat-raised-button color="warn">
+          <mat-icon>get_app</mat-icon>
+          Download CV
+        </button>
+      </div>
+    </div>
+  </mat-card>
+</div>

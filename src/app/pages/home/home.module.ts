@@ -16,7 +16,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { SupportComponent } from './pages/support/support.component';
 import { CoreModule } from '../../core/core.module';
 import { MatListModule } from '@angular/material/list';
-import { LandingPageService } from './services/landing-page.service';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -26,10 +25,11 @@ import { AboutMeComponent } from './components/about-me/about-me.component';
 import { WorkComponent } from './components/work/work.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
+import { BlogsComponent } from './components/blogs/blogs.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, SupportComponent, IntroComponent, AboutMeComponent, WorkComponent, ContactComponent, PersonalInfoComponent],
+  declarations: [HomeComponent, SupportComponent, IntroComponent, AboutMeComponent, WorkComponent, ContactComponent, PersonalInfoComponent, BlogsComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
@@ -52,7 +52,6 @@ import { PersonalInfoComponent } from './components/personal-info/personal-info.
     ExtendedModule
   ],
   providers: [
-    LandingPageService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

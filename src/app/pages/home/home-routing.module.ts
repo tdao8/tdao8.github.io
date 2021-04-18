@@ -6,6 +6,7 @@ import {IntroComponent} from './components/intro/intro.component';
 import {WorkComponent} from './components/work/work.component';
 import {AboutMeComponent} from './components/about-me/about-me.component';
 import {ContactComponent} from './components/contact/contact.component';
+import {BlogsComponent} from './components/blogs/blogs.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
       {path: '', component: IntroComponent},
       {path: 'about-me', component: AboutMeComponent},
       {path: 'works', component: WorkComponent},
-      {path: 'contact', component: ContactComponent}
+      {path: 'contact', component: ContactComponent},
+      {path: 'blog', component: BlogsComponent}
     ]
   },
   {path: 'support', component: SupportComponent},

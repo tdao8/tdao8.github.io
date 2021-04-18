@@ -6,7 +6,6 @@ import {Subscription, timer} from 'rxjs';
 import {NavigationService} from '../../services/navigation.service';
 import {ScrollService} from '../../services/scroll.service';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {LandingPageService} from '../../services/landing-page.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Router} from '@angular/router';
 import {Subject} from '../../../../core/models/subject';
@@ -59,7 +58,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     {pathName: 'Home', url: '', type: 0},
     {pathName: 'About Me', url: 'about-me', type: 1},
     {pathName: 'Works', url: 'works', type: 2},
-    {pathName: 'Blogs', url: '', type: 3},
+    {pathName: 'Blogs', url: 'blog', type: 3, href: 'https://vcoderlog.com/'},
     {pathName: 'Contact', url: 'contact', type: 3}
   ];
 
@@ -109,7 +108,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private cd: ChangeDetectorRef,
     private navService: NavigationService,
     private scrollService: ScrollService,
-    private landingpageServices: LandingPageService,
     public sanitizer: DomSanitizer,
     public router: Router,
     breakpointObserver: BreakpointObserver) {
@@ -138,7 +136,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   private initialize(): void {
-    this.getAllSubject();
     this.isOpen = false;
     this.resizeVideo();
   }
@@ -158,49 +155,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       console.log('Hide toolbar');
     }
     this.lastOffset = scrollTop;
-  }
-
-
-  // Api
-  public getAllSubject() {
-    this.landingpageServices.getAllSubject().subscribe((subjects: Subject[]) => {
-      this.subjects = subjects;
-      this.subjects.sort(function(a: any, b: any) {
-        var keyA = new Date(a.Index),
-          keyB = new Date(b.Index);
-        if (keyA < keyB) {
-          return -1;
-        }
-        if (keyA > keyB) {
-          return 1;
-        }
-        return 0;
-      });
-
-      const fillterManagers = this.subjects.filter(i => 0 === i.SubjectType);
-      const fillterStaffs = this.subjects.filter(i => 1 === i.SubjectType);
-
-
-      const newManagers = [];
-      while (fillterManagers.length) {
-        newManagers.push(fillterManagers.splice(0, 4));
-      }
-
-      const newStaffs = [];
-      while (fillterStaffs.length) {
-        newStaffs.push(fillterStaffs.splice(0, 4));
-      }
-
-      this.managerSubject = newManagers;
-      this.staffSubject = newStaffs;
-      console.log(this.managerSubject);
-      console.log(this.staffSubject);
-
-      console.log(this.staffSubject[0]);
-
-    }, error => {
-      this.subjects = [];
-    });
   }
 
 

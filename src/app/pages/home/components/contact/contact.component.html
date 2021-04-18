@@ -1,1 +1,42 @@
-<p>contact works!</p>
+<div style="height: 100vh; overflow: auto">
+  <div class="container" [style]="isMobile ? {'padding-top': '0px'} : {'padding-top' : '150px'}">
+    <div class="about-me" fxLayout="row wrap" fxLayout.lt-sm="column wrap" fxLayoutGap="1rem">
+      <app-personal-info [isMobile]="isMobile"></app-personal-info>
+      <div fxFlex>
+        <mat-card id="right-content">
+          <section id="contacts" class="container">
+            <h5>Contact</h5>
+            <div style="width: 70%; text-align: center; margin-bottom: 2rem">
+              Connect with me via....
+            </div>
+            <div fxLayout="row" fxLayout.lt-md="column" style="padding: 0 2rem">
+              <div fxFlex="40%">
+                <div class="personal-info-item">
+                  <mat-icon>mail</mat-icon>
+                  <label>vcoderlog@gmail.com</label>
+                </div>
+                <div class="personal-info-item">
+                  <mat-icon>stay_primary_portrait</mat-icon>
+                  <label>xxx-xxx-0861</label>
+                </div>
+                <div class="personal-info-item">
+                  <mat-icon>facebook</mat-icon>
+                  <label><a href="https://www.facebook.com/vcoderlog">VCoderLog Fanpage</a></label>
+                </div>
+                <div class="personal-info-item">
+                  <mat-icon>ondemand_video</mat-icon>
+                  <label><a href="#">VCoderLog Youtube Channel</a></label>
+                </div>
+              </div>
+              <div fxFlex="60%" id="map">
+                <img src="assets/img/map.png" style="width: 100%">
+              </div>
+            </div>
+
+          </section>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+

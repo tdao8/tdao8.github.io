@@ -1,0 +1,110 @@
+#about {
+  color: #8c9597;
+  padding: 2rem 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  mat-progress-bar {
+    width: 100%;
+  }
+
+  .skill-item {
+    padding: 1rem;
+  }
+
+  .green-progress .mat-progress-bar-fill::after {
+    background-color: green !important;
+  }
+
+  #skills {
+    width: 100%;
+    padding: 2rem 0;
+  }
+}
+
+#certs {
+  color: #8c9597;
+  background: url("/assets/img/line.png");
+
+  #cert {
+    //width: 100%;
+    align-items: center;
+  }
+}
+
+.about-me {
+  //margin-top: 150px;
+  height: 100%;
+}
+
+#left-content {
+
+
+  #personal-header-info {
+    padding-bottom: 2rem;
+    #avatar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        margin-top: -50px;
+        border-radius: 50%;
+        width: 70%;
+        border: solid 3px #f44336;
+      }
+    }
+
+    #personal-name {
+
+    }
+  }
+
+  #personal-info {
+    color: #8c9597;
+    background-color: #EDEEF0;
+    border-radius: 0 0 0.5rem 0.5rem;
+    padding: 1rem;
+
+    .personal-info-item {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0.5rem;
+      font-size: smaller;
+      label {
+        padding-left: 0.5rem;
+      }
+    }
+  }
+}
+
+#right-content {
+  #contacts {
+    padding: 2rem 0;
+    color: #8c9597;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    #work {
+      padding: 2rem 0;
+    }
+
+    .work-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 1rem;
+    }
+  }
+}
+
+.svg-defs {
+  //display: none;
+}
+

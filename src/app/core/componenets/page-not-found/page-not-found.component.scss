@@ -31,7 +31,6 @@ body {
 
 .notfound .notfound-404 {
   position: relative;
-  height: 240px;
 }
 
 .notfound .notfound-404 h1 {
@@ -51,8 +50,10 @@ body {
   margin-left: -20px;
 }
 
-.notfound .notfound-404 h1>span {
-  text-shadow: -8px 0px 0px #fff;
+.notfound .notfound-404 h1 {
+  span {
+    text-shadow: -8px 0px 0px #fff;
+  }
 }
 
 .notfound .notfound-404 h3 {

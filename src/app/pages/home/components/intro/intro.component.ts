@@ -27,7 +27,7 @@ export class IntroComponent implements OnInit {
       that.typewriterDisplay += that.typewriterText[currentLength];
       setTimeout(that.typingCallback, 50, that);
     } else {
-      timer(4000).subscribe(x => {
+      timer(2000).subscribe(x => {
         if (!this.swap) {
           that.typewriterText = that.typewriterText2;
         } else {

@@ -1,0 +1,42 @@
+#personal-header-info {
+  padding-bottom: 2rem;
+  #avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      margin-top: -50px;
+      border-radius: 50%;
+      width: 70%;
+      border: solid 3px #f44336;
+      box-shadow: 0px 4px 10px rgb(0 0 0 / 30%), 0px 0px 2px rgb(0 0 0 / 30%);;
+    }
+  }
+
+  #personal-name {
+
+  }
+}
+
+#personal-info {
+  color: #8c9597;
+  background-color: #EDEEF0;
+  border-radius: 0 0 0.5rem 0.5rem;
+  padding: 1rem;
+
+  .personal-info-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.5rem;
+    font-size: smaller;
+    label {
+      padding-left: 0.5rem;
+    }
+  }
+}
+
+a {
+  color: #8c9597;
+  text-decoration: none;
+}

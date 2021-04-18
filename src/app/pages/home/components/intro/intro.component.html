@@ -1,19 +1,21 @@
-<div id="home-items">
-  <p>Hello & Welcome</p>
-  <p style="white-space: break-spaces; line-height: 3rem">{{typewriterDisplay}}<span
-    style="font-size: 2rem">|</span></p>
-  <div>
-    <button mat-button matTooltip="My Blog">
-      <mat-icon>book</mat-icon>
-    </button>
-    <button mat-button matTooltip="My Facebook">
-      <mat-icon>facebook</mat-icon>
-    </button>
-    <button mat-button matTooltip="My Linkedin">
-      <mat-icon>linkedin</mat-icon>
+<div class="flex-center" style="height: 100vh">
+  <div id="home-items">
+    <p>Hello & Welcome</p>
+    <p style="white-space: break-spaces; line-height: 3rem">{{typewriterDisplay}}<span
+      style="font-size: 2rem">|</span></p>
+    <div>
+      <a mat-button matTooltip="My Blog" href="http://vcoderlog.com/">
+        <mat-icon>book</mat-icon>
+      </a>
+      <a mat-button matTooltip="My Facebook" href="https://www.facebook.com/vcoderlog">
+        <mat-icon>facebook</mat-icon>
+      </a>
+      <a mat-button matTooltip="My Linkedin" href="https://www.linkedin.com/in/tdao7/">
+        <mat-icon>linkedin</mat-icon>
+      </a>
+    </div>
+    <button style="margin: 1rem 0" mat-stroked-button matTooltip="Download my CV">
+      Download CV
     </button>
   </div>
-  <button style="margin: 1rem 0" mat-stroked-button matTooltip="Download my CV">
-    Download CV
-  </button>
 </div>
