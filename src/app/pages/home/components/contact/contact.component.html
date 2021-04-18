@@ -29,7 +29,15 @@
                 </div>
               </div>
               <div fxFlex="60%" id="map">
-                <img src="assets/img/map.png" style="width: 100%">
+                <div style="width: 100%">
+                  <ngx-skeleton-loader count="1" *ngIf="!isLoadMap" appearance="circle" [theme]="{
+                      'min-width': '350px',
+                      'height.px': '284',
+                      'border-radius': '10px'
+                    }">
+                  </ngx-skeleton-loader>
+                </div>
+                <img src="assets/img/map.png" style="width: 100%" (load)="turnOffS($event)">
               </div>
             </div>
 

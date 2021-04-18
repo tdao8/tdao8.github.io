@@ -8,6 +8,7 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 })
 export class ContactComponent implements OnInit {
   public isMobile = false;
+  isLoadMap = false;
 
   constructor(breakpointObserver: BreakpointObserver) {
     breakpointObserver.observe([
@@ -25,6 +26,13 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  turnOffS(evt): void {
+    if (evt && evt.target) {
+      this.isLoadMap = true;
+      console.log("Loaded");
+    }
   }
 
 }

@@ -25,6 +25,7 @@ import { WorkComponent } from './components/work/work.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
 import { BlogsComponent } from './components/blogs/blogs.component';
+import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { BlogsComponent } from './components/blogs/blogs.component';
     MatSliderModule,
     MatProgressBarModule,
     MatCardModule,
-    ExtendedModule
+    ExtendedModule,
+    NgxSkeletonLoaderModule
   ],
   providers: [
   ],
